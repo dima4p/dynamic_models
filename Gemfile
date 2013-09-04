@@ -42,3 +42,13 @@ group :development do
   gem 'translations_sync'
   gem 'quiet_assets'
 end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'guard'
+  gem 'guard-rspec'
+end
