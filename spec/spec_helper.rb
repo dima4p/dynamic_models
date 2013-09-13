@@ -39,4 +39,29 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+    Proxy.reset_column_information
+    Proxy.reset_table_name
+  end
+
+  Capybara.default_wait_time = 5
+  Capybara.javascript_driver = :webkit
+end
+
+I18n.locale = :en
+
+def logger
+  Rails.logger
 end
