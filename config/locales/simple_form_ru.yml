@@ -1,0 +1,10 @@
+--- 
+ru: 
+  simple_form: 
+    "yes": 'Да'
+    "no": 'Нет'
+    error_notification: 
+      default_message: "Сохранение не удалось из-за следующих ошибок:"
+    required: 
+      mark: "*"
+      text: обязательное
