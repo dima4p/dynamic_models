@@ -43,7 +43,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
   end
 
   config.before(:each) do
@@ -51,9 +51,8 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    DatabaseCleaner.clean
-    Proxy.reset_column_information
     Proxy.reset_table_name
+    DatabaseCleaner.clean
   end
 
   Capybara.default_wait_time = 5
