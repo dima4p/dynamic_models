@@ -1,0 +1,10 @@
+%p#notice= notice
+
+%dl
+  - Proxy.visible_column_names.each do |column|
+    %dt= column
+    %dd= @proxy.send column
+
+= link_to 'Edit', edit_proxy_path(@proxy, table_name: @table_name)
+\|
+= link_to 'Back', proxies_path(table_name: @table_name)

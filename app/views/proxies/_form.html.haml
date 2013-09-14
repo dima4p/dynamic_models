@@ -1,0 +1,14 @@
+= simple_form_for@proxy,
+  url: @proxy.new_record? ? proxies_path(table_name: @table_name) : proxy_path(@proxy, table_name: @table_name) do |f|
+  - if @proxy.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@proxy.errors.count, "error")} prohibited this proxy from being saved:"
+      %ul
+        - @proxy.errors.full_messages.each do |msg|
+          %li= msg
+  .form-inputs
+    - Proxy.visible_column_names.each do |column|
+      = f.input column, label: column
+
+  .actions
+    = f.submit 'Save'

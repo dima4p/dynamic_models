@@ -1,0 +1,7 @@
+%h1 Editing proxy
+
+= render 'form'
+
+= link_to 'Show', proxy_url(@proxy, table_name: @table_name)
+\|
+= link_to 'Back', proxies_path(table_name: @table_name)
