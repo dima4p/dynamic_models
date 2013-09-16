@@ -1,0 +1,8 @@
+- title t('.title')
+
+= form_tag models_path, multipart: true do
+  = label_tag "file", t(".file")
+  = file_field_tag "file"
+  = submit_tag t('.upload')
+
+%p.nav= link_to t('back'), models_path, :class => 'index'

@@ -1,6 +1,7 @@
 DynamicModels::Application.routes.draw do
 
-  #resources :proxies
+  resources :models, except: [:edit, :update]
+
   get 'proxies/:table_name', to: 'proxies#index', as: 'proxies'
   get 'proxies/:table_name/new', to: 'proxies#new', as: 'new_proxy'
   get 'proxies/:table_name/:id', to: 'proxies#show', as: 'proxy'
@@ -11,6 +12,6 @@ DynamicModels::Application.routes.draw do
   delete 'proxies/:table_name/:id', to: 'proxies#destroy'
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'models#index'
 
 end

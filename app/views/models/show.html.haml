@@ -1,0 +1,8 @@
+- title t('.title', name: @table_name.classify)
+
+%dl
+  - @columns.each do |name, type|
+    %dt= name
+    %dd= type
+
+%p.nav= link_to t('back'), models_path, :class => 'index'

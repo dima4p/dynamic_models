@@ -59,7 +59,8 @@ class ProxiesController < ApplicationController
   def destroy
     @proxy.destroy
     respond_to do |format|
-      format.html { redirect_to proxies_url }
+      format.html { redirect_to proxies_url,
+                    notice: 'Proxy was successfully deleted.' }
       format.json { head :no_content }
     end
   end

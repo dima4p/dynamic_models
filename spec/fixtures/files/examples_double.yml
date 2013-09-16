@@ -1,0 +1,6 @@
+examples:
+  name: string
+  position: integer
+more_examples:
+  name: string
+  position: integer

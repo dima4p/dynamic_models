@@ -1,0 +1,36 @@
+--- 
+ru: 
+  activerecord: 
+    attributes: 
+      model: 
+        name: "Название модели"
+    models: 
+      model: Модель
+  helpers: 
+    submit: 
+      model: 
+        create: "Добавить модель"
+        submit: "Сохранить модель"
+        update: "Изменить модель"
+  models: 
+    create: 
+      empty: "Описание таблицы не содержит полей"
+      exists: 'Модель с таким именем уже существует'
+      invalid_yaml: "Неверный формат файла с описанием"
+      not_hash: "Файл с описанием имеет неверый формат"
+      not_single: "Только одно описание модели разрешено на один файл"
+      wrong_field: 'Неверное описание поля "%{column_name}" как "%{type}"'
+    form: 
+      model: Модель
+    index: 
+      new_model: "Добавить новую модель"
+      title: "Список моделей"
+    new: 
+      file: "Файл с описанием"
+      title: "Добавление модели"
+      upload: "Загрузить файл с описанием"
+    show: 
+      title: "Атрибуты модели %{name}"
+    was_created: "Модель %{name} была успешно создана"
+    was_deleted: "Модель %{name} была успешно удалена"
+    was_updated: "Модель была успешно изменена"

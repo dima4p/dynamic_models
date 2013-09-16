@@ -1,0 +1,36 @@
+--- 
+en:
+  activerecord:
+    attributes:
+      model:
+        name: Name
+    models:
+      model: Model
+  models: 
+    create:
+      empty: 'Table has no columns'
+      exists: 'This model alreasy exists'
+      invalid_yaml: Invalid YAML file
+      not_hash: YAML file has invalid format
+      not_single: Only one description per file is allowed
+      wrong_field: 'Error in fiels description for "%{column_name}" as "%{type}"'
+    form:
+      model: Model
+    index: 
+      new_model: "Add new model"
+      title: "List of models"
+    new: 
+      file: 'File with the description'
+      title: "New model addition"
+      upload: 'Upload the file with description'
+    show: 
+      title: "Model %{name} attributes'"
+    was_created: "Model %{name} was successfully created"
+    was_deleted: "Model %{name} была was successfully deleted"
+    was_updated: "Model была was successfully updated"
+  helpers: 
+    submit: 
+      model: 
+        create: "Add new model"
+        submit: "Save the model"
+        update: "Update the model"

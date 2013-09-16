@@ -1,0 +1,21 @@
+- title t('.title')
+
+%table
+  %tr
+    %th
+      = t('activerecord.attributes.model.name')
+    %th
+    %th
+    %th
+
+  - @table_names.each do |table_name|
+    %tr
+      %td= table_name.classify
+      %td= link_to t('show'), model_path(table_name)
+      %td
+        = link_to t('destroy'), model_path(table_name), :method => :delete,
+          :data => { :confirm => t('are_you_sure') }
+
+%br
+
+= link_to t('.new_model'), new_model_path, class: 'new'
