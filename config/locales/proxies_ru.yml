@@ -1,0 +1,17 @@
+--- 
+ru: 
+  proxies: 
+    edit: 
+      title: "Редактирование записи в %{name}"
+    form: 
+      proxy: "Model %{name}"
+    index: 
+      new_proxy: "Добавить новую запись"
+      title: "Список записей %{name}"
+    new: 
+      title: "Добавление новой записи в %{name}"
+    show: 
+      title: "Информация о %{name}"
+    was_created: "Запись была успешно добавлена в %{name}"
+    was_deleted: "Запись была успешно удалена из %{name}"
+    was_updated: "Запись была успешно изменена в %{name}"

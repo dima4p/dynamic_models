@@ -1,9 +1,9 @@
-%h1 Listing proxies
+- title t('.title', name: @table_name.classify)
 
 %table
   %tr
     - Proxy.visible_column_names.each do |column|
-      %th= column
+      %th= column.titleize
     %th
     %th
     %th
@@ -12,10 +12,10 @@
     %tr
       - Proxy.visible_column_names.each do |column|
         %td= proxy.send column
-      %td= link_to 'Show', proxy_path(proxy, table_name: @table_name)
-      %td= link_to 'Edit', edit_proxy_path(proxy, table_name: @table_name)
-      %td= link_to 'Destroy', proxy_path(proxy, table_name: @table_name), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t('show'), proxy_path(proxy, table_name: @table_name)
+      %td= link_to t('edit'), edit_proxy_path(proxy, table_name: @table_name)
+      %td= link_to t('destroy'), proxy_path(proxy, table_name: @table_name), :method => :delete, :data => { :confirm => t('are_you_sure') }
 
 %br
 
-= link_to 'New Proxy', new_proxy_path(table_name: @table_name)
+= link_to t('.new_proxy'), new_proxy_path(table_name: @table_name)

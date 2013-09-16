@@ -5,7 +5,7 @@ class ProxiesController < ApplicationController
   # GET /proxies
   # GET /proxies.json
   def index
-    @proxies = Proxy.all
+    @proxies = Proxy.order(:id)
   end
 
   # GET /proxies/1
@@ -30,7 +30,7 @@ class ProxiesController < ApplicationController
     respond_to do |format|
       if @proxy.save
         format.html { redirect_to proxy_url(@proxy, table_name: @table_name),
-                      notice: 'Proxy was successfully created.' }
+                      notice: t('proxies.was_created', name: @table_name.classify) }
         format.json { render action: 'show', status: :created, location: @proxy }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class ProxiesController < ApplicationController
     respond_to do |format|
       if @proxy.update(proxy_params)
         format.html { redirect_to proxy_url(@proxy, table_name: @table_name),
-                      notice: 'Proxy was successfully updated.' }
+                      notice: t('proxies.was_updated', name: @table_name.classify) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -60,7 +60,7 @@ class ProxiesController < ApplicationController
     @proxy.destroy
     respond_to do |format|
       format.html { redirect_to proxies_url,
-                    notice: 'Proxy was successfully deleted.' }
+                    notice: t('proxies.was_deleted', name: @table_name.classify) }
       format.json { head :no_content }
     end
   end
@@ -73,7 +73,7 @@ class ProxiesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def proxy_params
-    params[:proxy]
+    params[:proxy].permit!
   end
 
   def set_table

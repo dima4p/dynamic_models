@@ -1,7 +1,7 @@
-%h1 Editing proxy
+- title t('.title', name: @table_name.classify)
 
 = render 'form'
 
-= link_to 'Show', proxy_url(@proxy, table_name: @table_name)
+= link_to t('show'), proxy_url(@proxy, table_name: @table_name)
 \|
-= link_to 'Back', proxies_path(table_name: @table_name)
+= link_to t('back'), proxies_path(table_name: @table_name)

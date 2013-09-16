@@ -17,6 +17,7 @@ en:
     form:
       model: Model
     index: 
+      browse: 'Browse'
       new_model: "Add new model"
       title: "List of models"
     new: 

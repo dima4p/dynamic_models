@@ -1,0 +1,17 @@
+--- 
+en:
+  proxies: 
+    edit: 
+      title: "Editing record in %{name}"
+    form:
+      proxy: 'Model %{name}'
+    index: 
+      new_proxy: "Add new record"
+      title: "List of %{name}"
+    new: 
+      title: "New record addition to %{name}"
+    show: 
+      title: "Model %{name} details'"
+    was_created: "The record was successfully added to %{name}"
+    was_deleted: "The record was successfully deleted from %{name}"
+    was_updated: "The record was successfully updated in %{name}"
