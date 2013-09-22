@@ -9,16 +9,13 @@ describe ModelsController do
 
   describe "GET 'index'" do
     it "assigns all table_names as @table_names" do
-      Proxy.should_receive(:connection) {Proxy}
-      Proxy.should_receive(:tables) {%w[examples more_examples]}
       get :index, {}, valid_session
-      assigns(:table_names).should eq(%w[examples more_examples])
+      assigns(:table_names).should eq(%w[examples])
     end
   end
 
   describe "GET 'show'" do
     it "assigns table_name as @table_name and columns info as @columns" do
-      Proxy.connection.create_table 'examples'
       Proxy.should_receive(:visible_columns) {{a: :b}}
       logger.debug "Rspec ModelsController@#{__LINE__}#GET 'show'"
       get 'show', {id: 'examples'}, valid_session
@@ -35,6 +32,10 @@ describe ModelsController do
   end
 
   describe "GET 'create'" do
+    before :each do
+      Proxy.connection.drop_table 'examples'
+    end
+
     describe "with valid params" do
       before :each do
         @file = fixture_file_upload 'files/examples.yml', 'application/octet-stream'
@@ -105,13 +106,11 @@ describe ModelsController do
 
   describe "DELETE 'destroy'" do
     it "destroys the requested proxy" do
-      Proxy.connection.create_table 'examples'
       delete :destroy, {:id => 'examples'}, valid_session
       Proxy.connection.tables.size.should == 0
     end
 
     it "redirects to the models list" do
-      Proxy.connection.create_table 'examples'
       delete :destroy, {:id => 'examples'}, valid_session
       response.should redirect_to(models_url)
     end

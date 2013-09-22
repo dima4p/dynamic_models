@@ -27,7 +27,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -43,19 +43,31 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
+    I18n.locale = :en
     DatabaseCleaner.start
+    begin
+      Proxy.connection.create_table 'examples'
+      Proxy.connection.add_column 'examples', :name, :string
+      Proxy.connection.add_column 'examples', :position, :integer
+      Proxy.connection.add_column 'examples', :created_at, :datetime
+      Proxy.connection.add_column 'examples', :updated_at, :datetime
+    rescue
+      nil
+    end
   end
 
   config.after(:each) do
+    DatabaseCleaner.clean rescue nil
+    Proxy.connection.drop_table 'examples' rescue nil
     Proxy.reset_table_name
-    DatabaseCleaner.clean
   end
 
-  Capybara.default_wait_time = 5
+  config.include Capybara::DSL
+  Capybara.default_wait_time = 1
   Capybara.javascript_driver = :webkit
 end
 
@@ -63,4 +75,13 @@ I18n.locale = :en
 
 def logger
   Rails.logger
+end
+
+def choose_autocomplete_result(item_text, input_selector="input[data-autocomplete]")
+  page.execute_script %Q{ $('#{input_selector}').trigger("focus") }
+  page.execute_script %Q{ $('#{input_selector}').trigger("keydown") }
+  # Set up a selector, wait for it to appear on the page, then use it.
+  item_selector = "ul.ui-autocomplete li.ui-menu-item a:contains('#{item_text}')"
+  page.should have_selector item_selector
+  page.execute_script %Q{ $("#{item_selector}").trigger("mouseenter").trigger("click"); }
 end

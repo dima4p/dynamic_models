@@ -12,22 +12,12 @@ describe Proxy do
 
     it 'should respond to :visible_column_names' do
       Proxy.table_name = 'examples'
-      Proxy.connection.create_table 'examples'
-      Proxy.connection.add_column 'examples', :name, :string
-      Proxy.connection.add_column 'examples', :position, :integer
-      Proxy.connection.add_column 'examples', :created_at, :datetime
-      Proxy.connection.add_column 'examples', :updated_at, :datetime
       Proxy.visible_column_names.should == %w[name position]
       Proxy.connection.drop_table 'examples'
     end
 
     it 'should respond to :visible_columns' do
       Proxy.table_name = 'examples'
-      Proxy.connection.create_table 'examples'
-      Proxy.connection.add_column 'examples', :name, :string
-      Proxy.connection.add_column 'examples', :position, :integer
-      Proxy.connection.add_column 'examples', :created_at, :datetime
-      Proxy.connection.add_column 'examples', :updated_at, :datetime
       Proxy.visible_columns.should == {name: :string, position: :integer}
       Proxy.connection.drop_table 'examples'
     end
