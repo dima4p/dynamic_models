@@ -38,8 +38,8 @@ $ ->
       $('#attribute').val(attribute)
       rows = $(this).closest('table').find('tr:not(:first-of-type)')
       width = rows.eq(0).find('td').eq(i).css('width')
-      values = $.makeArray(rows.map ->
-        $(this).find('td').eq(i).html())
+      values = $.makeArray($.unique(rows.map ->
+        $(this).find('td').eq(i).html())).sort()
       rows.each ->
         id = $(this).find('td').eq(-1).find('a').attr('href').split(/\//).pop()
         td = $(this).find('td').eq(i)
