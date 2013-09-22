@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>README - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./LayoutHelper.html">LayoutHelper</a>
+  
+    <li><a href="./ModelsController.html">ModelsController</a>
+  
+    <li><a href="./ProxiesController.html">ProxiesController</a>
+  
+    <li><a href="./Proxy.html">Proxy</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h2 id="label-README"><a href="README_rdoc.html">README</a></h2>
+
+<p>English description is below.</p>
+
+<h2 id="label-%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5">Задание</h2>
+
+<p>Написать приложение на Ruby on Rails  со следующей функциональностью:</p>
+
+<p>1) Приложение должно уметь динамически создавать класс модели в памяти,
+используя текстовое описание модели в формате YAML. Например:</p>
+
+<pre>examples:
+  field1: string
+  field2: integer</pre>
+
+<p>2) В случае отсутствия таблицы для модели в БД, необходимая таблица должна
+создаваться стандартными средствами framework’a.</p>
+
+<p>3) Использование SQL запросов в обход стандартного ORM не допускается.</p>
+
+<p>4) В приложении должен присутствовать вид, позволяющий показать все
+экземпляры заданной модели в виде таблицы. Заголовки столбцов таблицы
+формируются на основе описания полей модели. Строками таблицы являются
+значения полей экземпляров модели.</p>
+
+<p>5) При нажатии пользователем на заголовок столбца таблицы, все ячейки этого
+столбца должны превратиться в поля ввода с автодополнением, и появиться
+кнопка “сохранить данные”. Поле ввода с автодополнением должно быть
+выполнено в виде виджета, сочетающего в себе функционал поля текстового
+ввода и выпадающего списка значений. Виджет автодополнения должен быть в
+единственном экземпляре в течении всего времени работы со страницей. В
+качестве словаря для автодополнения взять список уникальных значений
+вводимого поля модели.</p>
+
+<p>6) При сохранении данных должно проверяться, не исправлялись ли эти данные
+другим пользователем за время, прошедшее с загрузки страницы. Если данные
+исправлялись, то исправленные строки должны подсветиться красным цветом, а
+пользователю предоставлен выбор записать новые значения или оставить
+текущие.</p>
+
+<p>7) Решение должно включать в себя тесты для проверки корректности работы
+кода как на стороне сервера, так и на стороне клиента (включая 
+javascript).</p>
+
+<h2 id="label-Description">Description</h2>
+
+<p>This is a test task to create the RoR application that has the following
+functionality7</p>
+
+<p>1) It should can create dynamically the model class in memory usint the
+text description of the model in YAML. For example:</p>
+
+<pre>examples:
+  field1: string
+  field2: integer</pre>
+
+<p>2) In the case the table is absent in the DB the appropiate table should be
+created  using the standard instumente of the framework.</p>
+
+<p>3) The sql requests besides the standard ORM are no allowed.</p>
+
+<p>4) The application should have a view with the examples of the given model
+as a table. The titles of the table should be formed based on the table
+description. The rows are the value of the model class instances.</p>
+
+<p>5) At the click on the table column header all the cells of this column
+should become the inputs with autocompletion and a button “Save” should
+appear. The autocompletion vidget sould have the text input field together
+with a drop-down list of values. This vidget must exists in unique instance
+on the page during all the time the user works with the page. The list of
+the values for autocompletion should be the list of unique values of that
+field.</p>
+
+<p>6) When the data are send to save the check should be performed whether any
+data were changed by other user. If the data occured to be changed the
+lines with the cahnged  data should be colored red and the user should have
+the choice to write the new values or leave the existing date untouched.</p>
+
+<p>7) There should be created the tests to check the above both for server
+side and client side (including JS).</p>
+
+<h2 id="label-Technical+data">Technical data</h2>
+<ul><li>
+<p>Ruby version</p>
+</li></ul>
+
+<p>ruby-2.0.0-p247</p>
+<ul><li>
+<p>System dependencies</p>
+</li></ul>
+
+<p>Bundle is used</p>
+<ul><li>
+<p>Configuration</p>
+</li></ul>
+
+<p>Standard</p>
+<ul><li>
+<p>Database creation</p>
+</li></ul>
+
+<p>PostgreSQL is used</p>
+<ul><li>
+<p>Database initialization</p>
+</li></ul>
+
+<p>rake db:create</p>
+<ul><li>
+<p>How to run the test suite</p>
+</li></ul>
+
+<p>Guard is used</p>
+<ul><li>
+<p>Services (job queues, cache servers, search engines, etc.)</p>
+</li></ul>
+
+<p>None</p>
+<ul><li>
+<p>Deployment instructions</p>
+</li></ul>
+
+<p>None</p>
+
+<p>Please feel free to use a different markup language if you do not plan to
+run <code>rake doc:app</code>.</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

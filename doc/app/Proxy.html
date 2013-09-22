@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Proxy - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/proxy.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-table_name">::table_name</a>
+    
+    <li><a href="#method-c-table_name-3D">::table_name=</a>
+    
+    <li><a href="#method-c-visible_column_names">::visible_column_names</a>
+    
+    <li><a href="#method-c-visible_columns">::visible_columns</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./LayoutHelper.html">LayoutHelper</a>
+  
+    <li><a href="./ModelsController.html">ModelsController</a>
+  
+    <li><a href="./ProxiesController.html">ProxiesController</a>
+  
+    <li><a href="./Proxy.html">Proxy</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Proxy</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="HIDE_COLUMNS">HIDE_COLUMNS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-table_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table_name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="table_name-source">
+            <pre><span class="ruby-comment"># File app/models/proxy.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table_name</span>
+  <span class="ruby-identifier">@@table_name</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-string">&#39;proxies&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- table_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- table_name-method -->
+
+    
+      <div id="method-c-table_name-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table_name=</span><span
+            class="method-args">(table_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="table_name-3D-source">
+            <pre><span class="ruby-comment"># File app/models/proxy.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table_name=</span>(<span class="ruby-identifier">table_name</span>)
+  <span class="ruby-identifier">@@table_name</span> = <span class="ruby-identifier">table_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- table_name-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- table_name-3D-method -->
+
+    
+      <div id="method-c-visible_column_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visible_column_names</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visible_column_names-source">
+            <pre><span class="ruby-comment"># File app/models/proxy.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible_column_names</span>
+  <span class="ruby-identifier">attribute_names</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HIDE_COLUMNS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- visible_column_names-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- visible_column_names-method -->
+
+    
+      <div id="method-c-visible_columns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visible_columns</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visible_columns-source">
+            <pre><span class="ruby-comment"># File app/models/proxy.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible_columns</span>
+  <span class="ruby-identifier">columns</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">HIDE_COLUMNS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">column</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">column</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">column</span>.<span class="ruby-identifier">type</span>
+    <span class="ruby-identifier">h</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- visible_columns-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- visible_columns-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

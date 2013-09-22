@@ -1,0 +1,8 @@
+Mon, 23 Sep 2013 02:14:47 +0400
+README.rdoc	Mon, 23 Sep 2013 02:14:39 +0400
+app/controllers/application_controller.rb	Fri, 20 Sep 2013 14:52:40 +0400
+app/controllers/models_controller.rb	Wed, 18 Sep 2013 19:37:42 +0400
+app/controllers/proxies_controller.rb	Mon, 23 Sep 2013 01:01:38 +0400
+app/helpers/application_helper.rb	Mon, 02 Sep 2013 19:45:54 +0400
+app/helpers/layout_helper.rb	Sat, 14 Sep 2013 13:37:40 +0400
+app/models/proxy.rb	Mon, 16 Sep 2013 02:26:31 +0400

@@ -1,40 +1,84 @@
 == README
 
+English description is below.
+
+== Задание
+
 Написать приложение на Ruby on Rails  со следующей функциональностью:
+
 1) Приложение должно уметь динамически создавать класс модели в памяти, используя текстовое описание модели в формате YAML. Например:
   examples:
     field1: string
     field2: integer
+
 2) В случае отсутствия таблицы для модели в БД, необходимая таблица должна создаваться стандартными средствами framework’a.
+
 3) Использование SQL запросов в обход стандартного ORM не допускается.
+
 4) В приложении должен присутствовать вид, позволяющий показать все экземпляры заданной модели в виде таблицы. Заголовки столбцов таблицы формируются на основе описания полей модели. Строками таблицы являются значения полей экземпляров модели.
+
 5) При нажатии пользователем на заголовок столбца таблицы, все ячейки этого столбца должны превратиться в поля ввода с автодополнением, и появиться кнопка “сохранить данные”. Поле ввода с автодополнением должно быть выполнено в виде виджета, сочетающего в себе функционал поля текстового ввода и выпадающего списка значений. Виджет автодополнения должен быть в единственном экземпляре в течении всего времени работы со страницей. В качестве словаря для автодополнения взять список уникальных значений вводимого поля модели.
+
 6) При сохранении данных должно проверяться, не исправлялись ли эти данные другим пользователем за время, прошедшее с загрузки страницы. Если данные исправлялись, то исправленные строки должны подсветиться красным цветом, а пользователю предоставлен выбор записать новые значения или оставить текущие.
+
 7) Решение должно включать в себя тесты для проверки корректности работы кода как на стороне сервера, так и на стороне клиента (включая  javascript).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Description
 
-Things you may want to cover:
+This is a test task to create the RoR application that has the following functionality7
+
+1) It should can create dynamically the model class in memory usint the text description
+of the model in YAML. For example:
+  examples:
+    field1: string
+    field2: integer
+
+2) In the case the table is absent in the DB the appropiate table should be created 
+using the standard instumente of the framework.
+
+3) The sql requests besides the standard ORM are no allowed.
+
+4) The application should have a view with the examples of the given model as a table.
+The titles of the table should be formed based on the table description.
+The rows are the value of the model class instances.
+
+5) At the click on the table column header all the cells of this column should become
+the inputs with autocompletion and a button "Save" should appear.
+The autocompletion vidget sould have the text input field together with a drop-down list
+of values. This vidget must exists in unique instance on the page during all the time
+the user works with the page. The list of the values for autocompletion should be the
+list of unique values of that field.
+
+6) When the data are send to save the check should be performed whether any data were
+changed by other user. If the data occured to be changed the lines with the cahnged 
+data should be colored red and the user should have the choice to write the new values
+or leave the existing date untouched.
+
+7) There should be created the tests to check the above both for server side and
+client side (including JS).
+
+== Technical data
 
 * Ruby version
+ruby-2.0.0-p247
 
 * System dependencies
+Bundle is used
 
 * Configuration
+Standard
 
 * Database creation
+PostgreSQL is used
 
 * Database initialization
+rake db:create
 
 * How to run the test suite
+Guard is used
 
 * Services (job queues, cache servers, search engines, etc.)
+None
 
 * Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+None
