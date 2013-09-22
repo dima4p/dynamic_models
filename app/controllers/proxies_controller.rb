@@ -6,6 +6,7 @@ class ProxiesController < ApplicationController
   # GET /proxies.json
   def index
     @proxies = Proxy.order(:id)
+    logger.debug "ProxiesController@#{__LINE__}#index #{@proxies.count}" if logger.debug?
   end
 
   # GET /proxies/1
@@ -62,6 +63,36 @@ class ProxiesController < ApplicationController
       format.html { redirect_to proxies_url,
                     notice: t('proxies.was_deleted', name: @table_name.classify) }
       format.json { head :no_content }
+      format.js
+    end
+  end
+
+  # POST /proxies/update_column
+  # POST /proxies/update_column.js
+  def update_column
+    Proxy.transaction do
+      if params[:force].present?
+        changed = []
+      else
+        changed = Proxy.where('updated_at > ?', params[:taken]).pluck(:id)
+        logger.debug "ProxiesController@#{__LINE__}#update_column #{changed.inspect}" if logger.debug?
+      end
+      if changed.empty?
+        attribute = params[:attribute]
+        values = params[attribute] || {}
+        Proxy.where(id: values.keys).find_each do |proxy|
+          value = values[proxy.id.to_s]
+          proxy.update_attribute(attribute, value) if proxy.send(attribute) != value
+        end
+      end
+      respond_to do |format|
+        format.html { redirect_to proxies_url,
+                      notice: t('proxies.were_updated',
+                                name: @table_name.classify,
+                                attribute: attribute) }
+        format.json { head :no_content }
+        format.js {render text: changed.to_json}
+      end
     end
   end
 
@@ -78,6 +109,7 @@ class ProxiesController < ApplicationController
 
   def set_table
     @table_name = Proxy.table_name = params[:table_name]
+    logger.debug "ProxiesController@#{__LINE__}#set_table #{ActiveRecord::Base.connection.tables.inspect}" if logger.debug?
     raise ActiveRecord::RecordNotFound unless Proxy.connection.tables.include? @table_name
   end
 end

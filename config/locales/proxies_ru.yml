@@ -6,7 +6,9 @@ ru:
     form: 
       proxy: "Model %{name}"
     index: 
+      force_save_columns: Перезаписать
       new_proxy: "Добавить новую запись"
+      save_columns: Сохранить
       title: "Список записей %{name}"
     new: 
       title: "Добавление новой записи в %{name}"
@@ -15,3 +17,4 @@ ru:
     was_created: "Запись была успешно добавлена в %{name}"
     was_deleted: "Запись была успешно удалена из %{name}"
     was_updated: "Запись была успешно изменена в %{name}"
+    were_updated: "Поле %{attribute} было изменено во всех записях таблицы %{name}"

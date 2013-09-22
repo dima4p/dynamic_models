@@ -23,6 +23,10 @@ describe ProxiesController do
       post("/proxies/examples").should route_to("proxies#create", table_name: 'examples')
     end
 
+    it "routes to #update_column" do
+      post("/proxies/examples/update_column").should route_to("proxies#update_column", table_name: 'examples')
+    end
+
     it "routes to #update" do
       put("/proxies/examples/1").should route_to("proxies#update", :id => "1", table_name: 'examples')
       patch("/proxies/examples/1").should route_to("proxies#update", :id => "1", table_name: 'examples')

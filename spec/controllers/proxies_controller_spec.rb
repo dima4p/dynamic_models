@@ -32,9 +32,7 @@ describe ProxiesController do
 
   before :each do
     Proxy.table_name = 'examples'
-    Proxy.connection.create_table 'examples'
-    Proxy.connection.add_column 'examples', :name, :string
-    Proxy.connection.add_column 'examples', :position, :integer
+    Proxy.delete_all rescue nil
   end
 
   describe "GET index" do
@@ -166,6 +164,71 @@ describe ProxiesController do
       proxy = Proxy.create! valid_attributes
       delete :destroy, {:id => proxy.to_param, table_name: 'examples'}, valid_session
       response.should redirect_to(proxies_url)
+    end
+  end
+
+  describe "POST update_column" do
+    before :each do
+      @proxy1 = Proxy.create! valid_attributes.merge(name: 'N1')
+      @proxy2 = Proxy.create! valid_attributes.merge(name: 'N2')
+      Proxy.table_name.should == 'examples'
+    end
+
+    it 'check if there are updated records' do
+      Proxy.should_receive(:where).with('updated_at > ?', '2013-09-18 11:37:49.642 +0000') {Proxy}
+      Proxy.should_receive(:pluck) {[]}
+      Proxy.should_receive(:where).with(id: []) {Proxy}
+      post :update_column,
+          {
+            attribute: 'name',
+            table_name: 'examples',
+            taken: '2013-09-18 11:37:49.642 +0000'
+          }
+    end
+
+    it 'as JS check if there are updated records and returns the ids' do
+      xhr :post, :update_column,
+          {
+            attribute: 'name',
+            table_name: 'examples',
+            taken: '2013-09-18 11:37:49.642 +0000'
+          }
+      @proxy1.reload.name.should == 'N1'
+      @proxy2.reload.name.should == 'N2'
+      response.body.should == [@proxy1.id, @proxy2.id].to_json
+    end
+
+    it 'as JS updates the given column with the new velues if no updated records exist' do
+      logger.debug "Rspec ProxiesController@#{__LINE__}#POST update_column'"
+      xhr :post, :update_column,
+          {
+            attribute: 'name',
+            table_name: 'examples',
+            taken: @proxy2.updated_at + 1.second,
+            name: {
+                   @proxy1.id.to_s => 'Name1'
+                  }
+          }
+      @proxy1.reload.name.should == 'Name1'
+      @proxy2.reload.name.should == 'N2'
+      response.body.should == [].to_json
+    end
+
+    it 'as JS updates the given column with the new velues if updated records exist and parameter :force is given' do
+      logger.debug "Rspec ProxiesController@#{__LINE__}#POST update_column'"
+      xhr :post, :update_column,
+          {
+            attribute: 'name',
+            force: '1',
+            table_name: 'examples',
+            taken: @proxy1.updated_at,
+            name: {
+                   @proxy1.id.to_s => 'Name1'
+                  }
+          }
+      @proxy1.reload.name.should == 'Name1'
+      @proxy2.reload.name.should == 'N2'
+      response.body.should == [].to_json
     end
   end
 

@@ -6,7 +6,9 @@ en:
     form:
       proxy: 'Model %{name}'
     index: 
+      force_save_columns: 'Overwrite'
       new_proxy: "Add new record"
+      save_columns: 'Save'
       title: "List of %{name}"
     new: 
       title: "New record addition to %{name}"
@@ -15,3 +17,4 @@ en:
     was_created: "The record was successfully added to %{name}"
     was_deleted: "The record was successfully deleted from %{name}"
     was_updated: "The record was successfully updated in %{name}"
+    were_updated: 'The field %{attribute} were_updated in %{name}'

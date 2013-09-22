@@ -7,6 +7,7 @@ DynamicModels::Application.routes.draw do
   get 'proxies/:table_name/:id', to: 'proxies#show', as: 'proxy'
   get 'proxies/:table_name/:id/edit', to: 'proxies#edit', as: 'edit_proxy'
   post 'proxies/:table_name', to: 'proxies#create'
+  post 'proxies/:table_name/update_column', to: 'proxies#update_column', as: 'update_column_proxies'
   put 'proxies/:table_name/:id', to: 'proxies#update'
   patch 'proxies/:table_name/:id', to: 'proxies#update'
   delete 'proxies/:table_name/:id', to: 'proxies#destroy'

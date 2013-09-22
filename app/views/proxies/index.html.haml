@@ -1,21 +1,40 @@
 - title t('.title', name: @table_name.classify)
 
-%table
-  %tr
-    - Proxy.visible_column_names.each do |column|
-      %th= column.titleize
-    %th
-    %th
-    %th
-
-  - @proxies.each do |proxy|
+= form_tag update_column_proxies_path(table_name: @table_name) do
+  = hidden_field_tag 'taken', Time.current.to_s(:milliseconds)
+  = hidden_field_tag 'attribute'
+  = hidden_field_tag 'force'
+  %table
     %tr
       - Proxy.visible_column_names.each do |column|
-        %td= proxy.send column
-      %td= link_to t('show'), proxy_path(proxy, table_name: @table_name)
-      %td= link_to t('edit'), edit_proxy_path(proxy, table_name: @table_name)
-      %td= link_to t('destroy'), proxy_path(proxy, table_name: @table_name), :method => :delete, :data => { :confirm => t('are_you_sure') }
+        %th{column_name: column}
+          = column.titleize
+      %th
+        = link_to t('cancel'), '#', style: 'display: none;',
+          class: 'columns_control save_columns cancel', style: 'display: none;'
+      %th
+        = submit_tag t('.save_columns', default: 'Save'),
+          style: 'display: none;',
+          class: 'columns_control first_save save_columns'
+        = submit_tag t('.force_save_columns', default: 'Overwrite'),
+          style: 'display: none;',
+          class: 'columns_control force_save_columns'
+      %th
+
+    - @proxies.each do |proxy|
+      %tr
+        - Proxy.visible_column_names.each do |column|
+          %td= proxy.send column
+        %td
+          = link_to t('show'), proxy_path(proxy, table_name: @table_name), class: 'show'
+        %td
+          = link_to t('edit'), edit_proxy_path(proxy, table_name: @table_name),
+            class: 'edit'
+        %td
+          = link_to t('destroy'), proxy_path(proxy, table_name: @table_name),
+            :method => :delete, :data => { :confirm => t('are_you_sure') },
+            class: 'destroy', remote: true
 
 %br
 
-= link_to t('.new_proxy'), new_proxy_path(table_name: @table_name)
+= link_to t('.new_proxy'), new_proxy_path(table_name: @table_name), class: 'new'
