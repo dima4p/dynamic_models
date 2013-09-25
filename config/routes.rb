@@ -1,5 +1,8 @@
 DynamicModels::Application.routes.draw do
 
+  get "static/risk_report"
+  get "static/efficiency"
+
   resources :models, except: [:edit, :update]
 
   get 'proxies/:table_name', to: 'proxies#index', as: 'proxies'
