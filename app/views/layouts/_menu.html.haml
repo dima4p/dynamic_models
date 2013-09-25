@@ -1,0 +1,7 @@
+- [1, 2, 3, 4, 5, 'efficiency', 'risk_report', 0, 8, 9].each do |item|
+  - if String === item
+    - active = params[:action] == item
+    = link_to item do
+      = image_tag active ? "menu_#{item}_active.jpg" : "menu_#{item}.jpg"
+  - else
+    = image_tag "menu_#{item}.jpg"

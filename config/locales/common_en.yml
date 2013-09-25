@@ -9,3 +9,4 @@ en:
   edit: Edit
   show: Show
   update: Update
+  welcome: '<em>WELCOME</em> %{name}'

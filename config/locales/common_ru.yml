@@ -1,6 +1,6 @@
 --- 
 ru: 
-  Back: "Назад"
+  Back: Назад
   actions: Действия
   are_you_sure: "Вы уверены?"
   back: "К списку"
@@ -9,3 +9,4 @@ ru:
   edit: Редактировать
   show: Показать
   update: Обновить
+  welcome: "<em>ПРИВЕТ</em>, %{name}"

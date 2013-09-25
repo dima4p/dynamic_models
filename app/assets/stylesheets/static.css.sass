@@ -1,0 +1,73 @@
+// Place all the styles related to the static controller here.
+
+$active_menu_bg: #02abee
+$active_submenu: white
+$active_submenu_bg: #00adef
+$chapter: #bbbbbb
+$containter_bg: #eeeeee
+$crrent_date: #68a1cc
+$date: #92c2ea
+$division: #434343
+$dot1: red
+$dot2: #ff9800
+$menu: white
+$menu_bg: #2c2c2c
+$off_switch_bg: #00aeed
+$on_switch_bg: #838383
+$paragraph: #848484
+$paragraph_border: #cdcdcd
+$submenu: white
+$submenu_bg: #888888
+$switch: #8c8c8c
+$text: #949494
+$title: #f2ffff
+$title_bg: #145386
+$user_pic_border: white
+
+@font-face
+  font-family: Jura-Light
+  src: url(/fonts/Jura-Light.woff)
+
+body.static
+  margin: 0
+  #container
+    background: $containter_bg
+    margin: 0 68px
+    #menu
+      background: $menu_bg
+      color: $menu
+      height: 50px
+      position: relative
+      a
+        display: inline-block
+        height: 50px
+        &:hover
+          text-decoration: none
+      #user_info
+        font-size: 12px
+        margin: 11px
+        position: absolute
+        right: 0
+        top: 0
+        em
+          font-style: normal
+          font-weight: bold
+        img
+          border: 2px solid $user_pic_border
+        .welcome
+          display: inline-block
+          margin-right: 8px
+          position: relative
+          top: -8px
+    #title
+      background: $title_bg
+      color: $title
+      padding: 20px
+      text-transform: uppercase
+      h1
+        margin: 0
+      .title
+        font-family: Jura-Light,verdana,arial,helvetica,sans-serif
+        margin-bottom: 10px
+      .current_data
+        color: $date

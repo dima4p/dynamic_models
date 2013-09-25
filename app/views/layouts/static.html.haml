@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title
+      = yield(:title) || "Untitled"
+      | DynamicModels
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body{:lang => I18n.locale,
+    :class => [controller.controller_name, controller.action_name, yield(:body_class)]}
+    #container
+      #menu
+        = render 'layouts/menu'
+        #user_info
+          .welcome
+            != t('welcome', name: @user_name)
+          = image_tag "/user_pics/#{@user_pic}"
+      #title
+        %h1.title
+          = yield(:title)
+        .current_data
+          = l(Date.current, format: :long)
+      = yield
