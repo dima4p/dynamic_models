@@ -23,6 +23,8 @@ English description is below.
 
 7) Решение должно включать в себя тесты для проверки корректности работы кода как на стороне сервера, так и на стороне клиента (включая  javascript).
 
+8) Сделать вёрстку двух страниц, образцы которых находятся в doc/page1.jpg и doc/page2.jpg.
+
 == Description
 
 This is a test task to create the RoR application that has the following functionality7
@@ -56,6 +58,8 @@ or leave the existing date untouched.
 
 7) There should be created the tests to check the above both for server side and
 client side (including JS).
+
+8) Create two pages with mark-up like on doc/page1.jpg and doc/page2.jpg.
 
 == Technical data
 
