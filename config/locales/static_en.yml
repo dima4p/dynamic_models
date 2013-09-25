@@ -4,4 +4,15 @@ en:
     efficiency:
       title: 'Inices of Efficiency'
     risk_report:
+      cage_shaft: 'Cage Shaft'
+      factory: 'Refining & Processing Factory'
+      mine: 'Mine'
+      most_resent: 'Most resent'
+      most_risky: 'Most at risk'
+      overview: 'Overview'
+      phase1: 'Phase 1'
+      phase2: 'Phase 2'
+      plant_inrastructue: 'Beneficial Plant Industrial Infrastructure'
+      skip_shaft_1: 'Skip Shaft 1'
+      social: 'Social'
       title: 'Risk Report'

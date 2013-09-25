@@ -4,4 +4,15 @@ ru:
     efficiency: 
       title: "Индексы эффективности"
     risk_report: 
+      cage_shaft: "Лифтовая Шахта"
+      factory: "Завод по Очистке и Переработке"
+      mine: Рудник
+      most_resent: "Самый последний"
+      most_risky: "Самый рискованный"
+      overview: Обзор
+      phase1: "Шаг 1"
+      phase2: "Шаг 2"
+      plant_inrastructue: "Полезная Инфрастурукткра Предприятия"
+      skip_shaft_1: "Скиповая Шахта"
+      social: "Социальные объекты"
       title: "Отчёт о рисках"

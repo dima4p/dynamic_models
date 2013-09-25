@@ -1,3 +1,43 @@
 - title t('.title')
 
-%p Find me in app/views/static/risk_report.html.haml
+%ul.submenu
+  %li.item= t '.overview'
+  %li.item.acitve= t '.phase1'
+  %li.item= t '.phase2'
+.scroll
+  .control.right &nbsp;
+  %ul.list
+    %li.item.red
+      .text= t '.skip_shaft_1'
+    %li.item.red
+      .text= t '.cage_shaft'
+    %li.item
+      .text= t '.mine'
+    %li.item.active
+      .text= t '.plant_inrastructue'
+    %li.item
+      .text= t '.factory'
+    %li.item
+      .text= t '.social'
+  .control.left &nbsp;
+.content
+  .book= t '.phase1'
+  .checkboxes
+    = label_tag 'most_resent', class: 'off' do
+      = t '.most_resent'
+    = check_box_tag 'most_resent'
+    = label_tag 'most_risky', class: 'on' do
+      = t '.most_risky'
+    = check_box_tag 'most_risky', '1', true
+  - @content.each do |division|
+    - if division[:title]
+      .division_title
+        = division[:title]
+    .chapters
+      - division[:content].each do |chapter|
+        .chapter
+          - if chapter[:title]
+            .chapter_title
+              = chapter[:title]
+          - Array.wrap(chapter[:content]).each do |paragraph|
+            %p= paragraph
