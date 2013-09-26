@@ -9,8 +9,10 @@ describe ModelsController do
 
   describe "GET 'index'" do
     it "assigns all table_names as @table_names" do
+      Proxy.connection.create_table 'schema_migrations'
       get :index, {}, valid_session
       assigns(:table_names).should eq(%w[examples])
+      Proxy.connection.drop_table 'schema_migrations' rescue nil
     end
   end
 

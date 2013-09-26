@@ -66,6 +66,12 @@ RSpec.configure do |config|
     Proxy.reset_table_name
   end
 
+  config.after(:suite) do
+    Proxy.connection.tables.each do |table|
+      Proxy.connection.drop_table table
+    end
+  end
+
   config.include Capybara::DSL
   Capybara.default_wait_time = 1
   Capybara.javascript_driver = :webkit

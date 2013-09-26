@@ -3,5 +3,8 @@
     - active = params[:action] == item
     = link_to item do
       = image_tag active ? "menu_#{item}_active.jpg" : "menu_#{item}.jpg"
+  - elsif item == 1
+    = link_to root_path do
+      = image_tag "menu_#{item}.jpg"
   - else
     = image_tag "menu_#{item}.jpg"

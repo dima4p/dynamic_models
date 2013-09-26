@@ -19,6 +19,7 @@ en:
     index: 
       browse: 'Browse'
       new_model: "Add new model"
+      risk_report: 'Risk Report'
       title: "List of models"
     new: 
       file: 'File with the description'

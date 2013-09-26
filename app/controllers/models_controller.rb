@@ -3,7 +3,8 @@ class ModelsController < ApplicationController
   before_action :set_table_name, only: [:show, :destroy]
 
   def index
-    @table_names = Proxy.connection.tables.sort
+    @table_names = Proxy.connection.tables.sort -
+        %w[schema_migrations]
   end
 
   def show

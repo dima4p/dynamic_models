@@ -3,19 +3,6 @@ class Proxy < ActiveRecord::Base
   HIDE_COLUMNS = %w[id created_at updated_at]
 
   class << self
-    def table_name=(table_name)
-      @@table_name = table_name
-    end
-
-    def table_name
-      @@table_name
-    rescue
-      'proxies'
-    end
-
-    def visible_column_names
-      attribute_names - HIDE_COLUMNS
-    end
 
     def visible_columns
       columns.reject do |column|
@@ -25,6 +12,10 @@ class Proxy < ActiveRecord::Base
         h
       end
     end
-  end
 
+    def visible_column_names
+      visible_columns.keys.map(&:to_s)
+    end
+
+  end
 end

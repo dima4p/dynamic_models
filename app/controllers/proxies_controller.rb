@@ -87,9 +87,10 @@ class ProxiesController < ApplicationController
       end
       respond_to do |format|
         format.html { redirect_to proxies_url,
-                      notice: t('proxies.were_updated',
-                                name: @table_name.classify,
-                                attribute: attribute) }
+                      notice: changed.present? ? nil :
+                                t('proxies.were_updated',
+                                  name: @table_name.classify,
+                                  attribute: attribute) }
         format.json { head :no_content }
         format.js {render text: changed.to_json}
       end

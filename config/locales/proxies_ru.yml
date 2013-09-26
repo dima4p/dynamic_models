@@ -7,6 +7,7 @@ ru:
       proxy: "Model %{name}"
     index: 
       force_save_columns: Перезаписать
+      models: 'К списку моделей'
       new_proxy: "Добавить новую запись"
       save_columns: Сохранить
       title: "Список записей %{name}"
