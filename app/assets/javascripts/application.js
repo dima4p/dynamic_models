@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require turbolinks
+//= require tools/raphael
 //= require_tree .
