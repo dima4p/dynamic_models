@@ -25,7 +25,6 @@ module DynamicModels
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.default_locale = :ru
-    config.i18n.locale = :ru
     config.colorize_logging = false
     config.generators do |g|
       g.colorize_logging = true
