@@ -5,12 +5,24 @@ $active_submenu: white
 $active_submenu_bg: #00adef
 $book: #bbbbbb
 $checkbox_label: #a2a2a2
+$circle: #e5e5e5
+$circle_data: #bbbbbb
+$circle_blue: #00b0ee
+$comment: #8e8e8e
 $containter_bg: #eeeeee
 $crrent_date: #68a1cc
 $date: #92c2ea
 $division: #434343
 $dot1: red
 $dot2: #ff9800
+$graph_text: #434343
+$indices_bg: white
+$indices_border: #d5d5d5
+$indices_subtitle: #393939
+$indices_subtitle_bg: #e6e6e6
+$indices_title: #cacaca
+$indices_title_bg: #424242
+$indices_title_border: #555555
 $menu: white
 $menu_bg: #2c2c2c
 $off_switch_bg: #00aeed
@@ -25,6 +37,7 @@ $submenu_bg: #888888
 $switch: #8c8c8c
 $title: #f2ffff
 $title_bg: #145386
+$throughput_param: #00b0ee
 $user_pic_border: white
 
 @font-face
@@ -32,8 +45,9 @@ $user_pic_border: white
   src: url(/fonts/Jura-Light.woff)
 
 body.static
+  line-height: normal
   margin: 0
-  min-width: 930px
+  min-width: 960px
   #container
     background: $containter_bg
     margin: 0 68px 68px
@@ -77,6 +91,164 @@ body.static
       .current_data
         color: $date
         font-size: 11px
+
+body.static.efficiency
+  .book
+    color: $book
+    font-family: Jura-Light,verdana,arial,helvetica,sans-serif
+    font-size: 38px
+    padding: 20px 18px
+  .left,.right
+    display: inline-block
+    padding: 16px 20px
+  .left
+    width: calc(100%/3*2 - 44px)
+    text-align: center
+  .right
+    width: calc(100%/3 - 44px)
+  .content
+    padding: 0 20px 20px
+  .index
+    .data
+      display: inline-block
+      .datum
+        color: $circle
+        display: inline-block
+        .graph
+          color: $circle
+          height: 130px
+          position: relative
+          width: 130px
+          &.period_1
+            color: $circle_data
+          &.period_2
+            color: $circle_blue
+          .number
+            font-size: 24px
+            font-weight: bold
+            position: absolute
+            text-align: center
+            top: 61px
+            width: 130px
+        .period
+          color: $graph_text
+          font-size: 12px
+          margin-bottom: 20px
+          text-align: center
+          text-transform: uppercase
+  .indices_subtitle
+    background-color: $indices_subtitle_bg
+    border-left: 1px solid $indices_border
+    border-right: 1px solid $indices_border
+    color: $indices_subtitle
+    font-size: 20px
+    padding: 14px 20px
+    position: relative
+    text-transform: uppercase
+  .indices_title
+    background-color: $indices_title_bg
+    color: $indices_title
+    font-size: 14px
+    text-transform: uppercase
+    .left
+      border-right: 1px solid $indices_title_border
+  .minus
+    background-image: url('minus.jpg')
+    background-position: center
+    background-repeat: no-repeat
+    border-left: 1px solid $indices_border
+    height: 54px
+    position: absolute
+    right: 0
+    top: 0
+    width: 51px
+  .row
+    background-color: $indices_bg
+    border-top: 1px solid $indices_border
+    border-right: 1px solid $indices_border
+    border-left: 1px solid $indices_border
+    color: $graph_text
+    position: relative
+    &:last-of-type
+      border-bottom: 1px solid $indices_border
+    .name
+      font-size: 18px
+      height: 40px
+      text-align: left
+      text-transform: uppercase
+    .left
+      background-image: url('indices_separator.jpg')
+      background-position: center right
+      background-repeat: no-repeat
+    .right
+      height: 100%
+      padding-left: 12px
+      vertical-align: top
+      .comment
+        color: $comment
+        padding: 20px 52px
+        background-image: url('dialog.jpg')
+        background-position: left top
+        background-repeat: no-repeat
+        padding: 0 30px
+        vertical-align: top
+  .throughput_param
+    .main
+      border-right: 1px solid $indices_border
+      display: inline-block
+      margin: 0
+      text-align: center
+      width: calc(100% - 52px)
+      .left
+        background-image: none
+        left: 0
+        position: absolute
+    .data
+      display: inline-block
+      .datum
+        color: $circle
+        display: inline-block
+        height: 170px
+        margin-bottom: 40px
+        position: relative
+        width: 238px
+        .graph0,.graph1
+          background-position: left bottom
+          background-repeat: no-repeat
+          bottom: 0
+          height: 73px
+          left: 20px
+          position: absolute
+          width: 30px
+        .graph0
+          background-image: url('body_gray.jpg')
+        .graph1
+          background-image: url('body_blue.jpg')
+        .number
+          bottom: -14px
+          color: $throughput_param
+          font-size: 70px
+          font-weight: normal
+          left: 62px
+          position: absolute
+          text-align: left
+          width: 130px
+        .period
+          bottom: 60px
+          color: $graph_text
+          font-size: 12px
+          left: 70px
+          position: absolute
+          text-align: center
+          text-transform: uppercase
+    .side
+      background-image: url('dialog.jpg')
+      background-position: 50% 16px
+      background-repeat: no-repeat
+      display: inline-block
+      height: 40px
+      vertical-align: top
+      width: 40px
 
 body.static.risk_report
   .checkboxes
@@ -155,8 +327,7 @@ body.static.risk_report
       font-weight: normal
       margin: 20px 20px 12px
       padding: 0
-      width: 100%
-      width: -moz-available
+      width: calc(100% - 40px)
       .item
         background-image: url('yellow_dot.jpg')
         background-position: right bottom
@@ -165,7 +336,7 @@ body.static.risk_report
         height: 100px
         text-align: left
         vertical-align: text-top
-        width: 16%
+        width: calc((100% - 30px)/ 6)
         &.active
           background-color: $active_submenu_bg
           background-image: url('yellow_dot_active.jpg')

@@ -2,7 +2,20 @@
 en:
   static: 
     efficiency:
+      accidents: 'Number of industrial accidents for the period under review'
+      book: 'Title TBC'
+      comments: 'Comments'
+      emergencies: 'Number of emergencies (defects)'
+      index: 'Indices'
+      index_period_0: 'Planned'
+      index_period_1: 'Previous'
+      index_period_2: 'Actual'
+      industrial_safety_indices: 'Industrial Safety Indices'
+      safety_comment: 'Works wre performed incompletely due to change of previously issued detailed documentation'
       title: 'Inices of Efficiency'
+      throughput_params: 'Throughput Parameters'
+      value_of_realization: 'Value of realization per employee for rhe period under review'
+      violations: 'Number of violations spotted by supervision'
     risk_report:
       cage_shaft: 'Cage Shaft'
       factory: 'Refining & Processing Factory'

@@ -1,3 +1,41 @@
 - title t('.title')
 
-%p Find me in app/views/static/efficiency.html.haml
+.book= t '.book'
+.content
+  .indices_title
+    .left= t '.index'
+    .right= t '.comments'
+  .indices_subtitle
+    = t '.industrial_safety_indices'
+    .minus
+  - @indices.each do |index|
+    .row.index
+      .left
+        .name= t ".#{index.shift}"
+        - maximum = index.pop
+        .data
+          - index.each_with_index do |val, i|
+            .datum
+              .graph{class: val > 0 ? "period_#{i}" : '', data: {maximum: maximum}}
+                .number= val
+              .period= t ".index_period_#{i}"
+      .right
+        .comment
+          = t '.safety_comment'
+  .indices_subtitle
+    = t '.throughput_params'
+    .minus
+  - @throughput_params.each do |t_param|
+    .row.throughput_param
+      .main
+        .left
+          .name= t ".#{t_param.shift}"
+        - maximum = t_param.pop
+        .data
+          - t_param.each_with_index do |val, i|
+            .datum
+              .graph0
+              .graph1{style: "height: #{73.0 * val / maximum}px;"}
+              .period= t ".index_period_#{i}"
+              .number= val
+      .side
