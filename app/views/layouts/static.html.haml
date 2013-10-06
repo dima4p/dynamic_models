@@ -11,7 +11,7 @@
   %body{:lang => I18n.locale,
     :class => [controller.controller_name, controller.action_name, yield(:body_class)]}
     #container
-      #menu
+      %nav#menu
         = render 'layouts/menu'
         #user_info
           .welcome

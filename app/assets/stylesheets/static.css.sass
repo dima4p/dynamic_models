@@ -47,10 +47,14 @@ $user_pic_border: white
 body.static
   line-height: normal
   margin: 0
-  min-width: 960px
+  min-width: 1026px // elastic width
+  //width: 1080px   // Fixed width
+  h2, h3, h4
+    font-weight: normal
+    margin: 0
   #container
     background: $containter_bg
-    margin: 0 68px 68px
+    margin: 0 80px 80px
     #menu
       background: $menu_bg
       color: $menu
@@ -93,6 +97,9 @@ body.static
         font-size: 11px
 
 body.static.efficiency
+  meter
+    -webkit-appearance: normal
+    appearance: normal
   .book
     color: $book
     font-family: Jura-Light,verdana,arial,helvetica,sans-serif
@@ -102,15 +109,18 @@ body.static.efficiency
     display: inline-block
     padding: 16px 20px
   .left
-    width: calc(100%/3*2 - 44px)
-    text-align: center
+    width: 56%
+    width: calc(61% - 44px)
   .right
-    width: calc(100%/3 - 44px)
+    width: 33%
+    width: calc(39% - 44px)
   .content
     padding: 0 20px 20px
   .index
     .data
-      display: inline-block
+      display: block
+      margin-left: 6.4%
+      margin-left: calc((100% - 396px) / 2 - 21px)
       .datum
         color: $circle
         display: inline-block
@@ -118,7 +128,7 @@ body.static.efficiency
           color: $circle
           height: 130px
           position: relative
-          width: 130px
+          width: 132px
           &.period_1
             color: $circle_data
           &.period_2
@@ -161,7 +171,7 @@ body.static.efficiency
     position: absolute
     right: 0
     top: 0
-    width: 51px
+    width: 52px
   .row
     background-color: $indices_bg
     border-top: 1px solid $indices_border
@@ -180,10 +190,14 @@ body.static.efficiency
       background-image: url('indices_separator.jpg')
       background-position: center right
       background-repeat: no-repeat
+      width: 57%
+      width: calc(61% - 37px)
     .right
       height: 100%
       padding-left: 12px
       vertical-align: top
+      width: 33%
+      width: calc(39% - 51px)
       .comment
         color: $comment
         padding: 20px 52px
@@ -197,14 +211,16 @@ body.static.efficiency
       border-right: 1px solid $indices_border
       display: inline-block
       margin: 0
-      text-align: center
-      width: calc(100% - 52px)
+      width: 94%
+      width: calc(100% - 53px)
       .left
         background-image: none
         left: 0
         position: absolute
     .data
-      display: inline-block
+      display: block
+      margin-left: 9%
+      margin-left: calc((100% - 714px) / 2 + 16px)
       .datum
         color: $circle
         display: inline-block
@@ -212,6 +228,8 @@ body.static.efficiency
         margin-bottom: 40px
         position: relative
         width: 238px
+        &:last-of-type
+          margin-left: -20px
         .graph0,.graph1
           background-position: left bottom
           background-repeat: no-repeat
@@ -276,6 +294,7 @@ body.static.risk_report
       color: $book
       font-family: Jura-Light,verdana,arial,helvetica,sans-serif
       font-size: 38px
+      font-weight: lighter
     .division_title
       color: $division
       font-size: 20px
@@ -327,6 +346,7 @@ body.static.risk_report
       font-weight: normal
       margin: 20px 20px 12px
       padding: 0
+      width 96%
       width: calc(100% - 40px)
       .item
         background-image: url('yellow_dot.jpg')
@@ -336,7 +356,8 @@ body.static.risk_report
         height: 100px
         text-align: left
         vertical-align: text-top
-        width: calc((100% - 30px)/ 6)
+        width: 16.5%
+        width: calc((100% - 5px)/ 6)
         &.active
           background-color: $active_submenu_bg
           background-image: url('yellow_dot_active.jpg')
@@ -361,7 +382,7 @@ body.static.risk_report
       display: inline-block
       padding: 16px 0
       text-align: center
-      width: 33%
+      width: 33.33%
       &.acitve
         background-color: $active_submenu_bg
         background-image: url('submenu_active.jpg')
